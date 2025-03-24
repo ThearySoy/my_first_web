@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="like" data-opt="1">    
+        Like
+    </div>
+    <div class="like" data-opt="1">
+        Like
+    </div>
+    <div class="like" data-opt="1">
+        Like
+    </div>
+    <img src="img/1.jpg" alt="" class="img" data-img1="img/1.jpg" data-img2="img/2.jpg">
+    <img src="img/3.jpg" alt="" class="img" data-img1="img/3.jpg" data-img2="img/4.jpg">
+</body>
+<script>
+    $(document).ready(function(){
+        $('.like').click(function(){
+            var eThis = $(this);
+            var opt = eThis.data("opt");   //opt = 1 ដោយរហៅ​data opt  //ហើយស្រដៀងនឹងប្រកាសVariable
+            if(opt == 1){
+                eThis.css({"color":"blue","font-size":"25px"});
+                eThis.data("opt","2");
+            }else{
+                eThis.css({"color":"darkcyan","font-size":"22px"});
+                eThis.data("opt","1");
+            }
+        });
+        //change image
+        $('.img').mouseover(function(){
+            //$('.img').attr("src","img/2.jpg");
+            var eThis = $(this);
+            var img2 = eThis.data("img2");    //ban ney tha yg hav data ng mk prer
+            eThis.attr("src", img2);
+        });
+        $('.img').mouseout(function(){
+            //$('.img').attr("src","img/1.jpg");
+            var eThis = $(this);
+            var img1 = eThis.data("img1");
+            eThis.attr("src", img1);
+        });
+    });
+</script>
+</html>

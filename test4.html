@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="box-5">
+        <h1>THis is my chanel</h1>
+        <div class="box-6">
+            <input type="button" value="Post" class="btn-1">
+        <div>
+        <div class="box-6" >
+            <input type="button" value="Post" class="btn-1">
+        <div>
+    </div>
+    <div class="box-5">
+        <h1>THis is my Acc</h1>
+        <div class="box-6">
+            <input type="button" value="Post" class="btn-1">
+        <div>
+        <div class="box-6" >
+            <input type="button" value="Post" class="btn-1">
+        <div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $('.btn-1').click(function(){
+            //$(this).parent().remove();
+            //$('.box-6').remove();
+            //$(this).parent().css({"background-color":"yellow"});
+            //$('.box-6').css({"background-color":"yellow"});
+            //$('.box-5').css({"background-color":"yellow"});
+            //$(this).parents('.box-5').css({"background-color":"yellow"});
+            $(this).parents('.box-5').find('h1').html("haha");
+        })
+    })
+</script>
+</html>

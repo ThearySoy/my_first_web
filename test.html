@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="box">
+        Javascript
+    </div><br>
+    <input type="text" name="" id="txt1"><br><br>
+    <select name="" id="txt2">
+        <option value="1">Javascript</option>
+        <option value="2">PHP</option>
+        <option value="3">Laravel</option>
+    </select><br><br>
+    <input type="text" name="" id="txt3">
+    <input type="text" name="" id="txt4">
+    <input type="text" name="" id="txt5"><br><br>
+
+    <input type="button" value="Hide" id="btn1">
+    <input type="button" value="Show" id="btn2">
+    <input type="button" value="Hide/Show" id="btn3">
+    <input type="button" value="Set Html" id="btn4">
+    <input type="button" value="Set Val" id="btn5">
+</body>
+<script>
+    $(document).ready(function(){
+        var txt3 = $('#txt3');
+        var txt4 = $('#txt4');
+        var txt5 = $('#txt5'); 
+
+        $('#btn1').click(function(){
+           //$('.box').hide();
+           //$('.box').slideUp();
+           $('.box').fadeOut(1000);
+
+        });
+        $('#btn2').click(function(){
+            //$('.box').show();
+            //$('.box').slideDown();
+            $('.box').fadeIn();
+        });
+        $('#btn3').click(function(){
+            //$('.box').toggle();
+            $('.box').slideToggle();
+        })
+        $('#btn4').click(function(){
+            $('.box').html("JQuery");
+        })
+        $('#btn5').click(function(){
+            //$('#txt1').val("This is Jquery");
+            $('#txt2').val(3);
+        })
+        txt3.keyup(function(){
+            //txt5.val( parseFloat(txt3.val()) + parseFloat(txt4.val()) );
+            txt5.val(getTotal(txt3.val(), txt4.val()));
+        })
+        txt4.keyup(function(){
+            txt5.val(getTotal(txt3.val(), txt4.val()));
+        })
+        function getTotal(t1,t2){
+            return parseFloat(t1)+parseFloat(t2);
+        }
+    });
+</script>
+</html>
