@@ -4,8 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="icon/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="jquery.min.js"></script>
+
 </head>
 <body>
+    <div class="menu-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 menu">
+                    <ul>
+                        <li id="btnMenu">
+                            <a href="#">
+                                <i class="fa-solid fa-bars"></i>
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="">Apple</a>
+                            <div class="sub-menu">
+                                <ul>
+                                    <li>
+                                        <a href="">IMac</a>
+                                    </li>
+                                    <li>
+                                        <a href="">IPhone</a>
+                                    </li>
+                                    <li>
+                                        <a href="">IWatch</a>
+                                    </li>
+                                    <li>
+                                        <a href="">ITV</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">Google</a>
+                            <div class="sub-menu">
+                                <ul>
+                                    <li>
+                                        <a href="">Microsoft</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Office</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Surface</a>
+                                    </li>
+                                    <li>
+                                        <a href="">ITV</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">Facebook</a>
+                            <div class="sub-menu">
+                                <ul>
+                                    <li>
+                                        <a href="">Instagram</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Messanger</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Twitter</a>
+                                    </li>
+                                    <li>
+                                        <a href="">ITV</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popMenu">
+        <ul>
+            <!-- <li>
+                <a href="">Google</a>
+            </li>
+            <li>
+                <a href="">Apple</a>
+            </li>
+            <li>
+                <a href="">Facebook</a>
+            </li> -->
+        </ul>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 slide-container">
+                <div class="slide-box">
+                    <div class="slide" style="background-image: url('img/slider/5.jpg');">
+                      
+                    </div>
+                    <div class="slide" style="background-image: url('img/slider/6.jpg');">
+                       
+                    </div>
+                    <div class="slide" style="background-image: url('img/slider/7.jpg');">
+                       
+                    </div>
+                    <div class="slide" style="background-image: url('img/slider/8.jpg');">
+                       
+                    </div>
+                    <div class="slide" style="background-image: url('img/slider/9.jpg');">
+                       
+                    </div>
+                    <div class="btn1 btn-back">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <div class="btn1 btn-next">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="page-slide">
+                        <ul>
+                            <!-- <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
+<script>
+    $(document).ready(function(){
+        //slide
+        var slide = $('.slide');
+        var numSlide = slide.length; 
+      
+        slide.hide();
+        var x=0;
+        slide.eq(x).show();
+
+        get_page_slide();
+
+        //next slide
+        $('.btn-next').click(function(){
+            slide.eq(x).hide();
+            $('.page-slide').find('ul li').eq(x).removeClass('active');
+            x++;  
+            if(x>=numSlide){  
+                x=0;
+            }
+            slide.eq(x).show();
+            $('.page-slide').find('ul li').eq(x).addClass('active');
+        });
+
+        //back slide
+        $('.btn-back').click(function(){
+            slide.eq(x).hide();
+            $('.page-slide').find('ul li').eq(x).removeClass('active');
+            if(x==0){
+                x=numSlide;
+            }
+            x--; 
+            slide.eq(x).show();
+            $('.page-slide').find('ul li').eq(x).addClass('active');
+        });
+
+        //get page slide pagination
+        function get_page_slide(){
+            var li = '';
+            var x = 0;
+            for(i=0;i<numSlide;i++){ //5
+                x++;
+                li = li+ "<li>"+x+"</li>";
+            }
+            $('.page-slide').find('ul').html(li);
+            $('.page-slide').find('ul li').eq(0).addClass('active');
+        }
+
+        //slide with page slide click
+        $('.page-slide').on('click','ul li',function(){
+            slide.eq(x).hide();
+            $('.page-slide').find('ul li').eq(x).removeClass('active');
+            x = $(this).index();   //.index() គឺចាប់ទីតាំងរបស់ li ដែលយើងចុច
+            slide.eq(x).show();
+            $('.page-slide').find('ul li').eq(x).addClass('active');
+        })
+        var popUp = "<div class='popup'></div>";
+        var menuData = [
+            "Html",
+            "CSS",
+            "Javascript",
+            "Jquery",
+            "Php"
+        ];
+        
+        var menuBox = $('.menu');
+        get_menu();
+        function get_menu(){
+            txt = '';
+            for(i in menuData){
+                txt += "<li><a href=''>"+menuData[i]+"</a></li>";
+            }
+            menuBox.find('ul').append(txt);
+            $('.popMenu').find('ul').html(txt);
+        }
+        $('#btnMenu').click(function(){
+            $('body').append(popUp);
+            $('.popMenu').css({"left":"0"});
+        })
+        $('body').on('click','.popup', function() {
+            $(this).remove();
+            $('.popMenu').css({"left":"-280px"});
+        })
+    });
+</script>
 </html>

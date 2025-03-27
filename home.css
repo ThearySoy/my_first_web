@@ -1,0 +1,144 @@
+body{
+    margin: 0;
+}
+div{
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu-bar{
+    width: 100%;
+    float: left;
+    background-color:darkcyan;
+}
+
+.menu-bar ul li{
+    float: left;
+}
+.menu-bar ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    color: white; 
+}
+.menu-bar ul li a:hover{
+    background-color: white;
+    color: black;
+}
+.menu-bar ul li:hover .sub-menu{
+    visibility: visible;
+}
+.sub-menu{
+    width: 250px;
+    background-color:teal;
+    position: absolute;
+    top: 100%;
+    left: 3px;
+    visibility: hidden;
+}
+.sub-menu ul li{
+    width: 100%;
+    float: left;
+}
+
+.popMenu{
+    width: 280px;
+    height: 100%;
+    position: fixed;
+    background-color:darkcyan;
+    left: -280px;
+    transition: 0.5s;
+    z-index: 1;
+}
+.popMenu ul li{
+    float: left;
+    width: 100%;
+}
+.popMenu ul li a{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+.popMenu ul li a:hover{
+    background-color: white;
+    color: black;
+}
+.popup{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(128, 128, 128, 0.5);
+    z-index: 0;
+}
+.slide-box{
+    width: 100%;
+    height: 400px;
+    float: left;
+    background-color:thistle;
+    margin-top: 50px;
+    overflow: hidden;
+    
+}
+.slide-box .slide{
+    width: 100%;
+    height: 100%;
+    float: left;
+    background-color: wheat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.slide-box .btn1{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px 10px;
+    cursor: pointer;
+}
+.slide-box .btn1:hover{
+    background-color: white;
+    color: black;
+}
+.slide-box .btn-back{
+    left: 0;
+}
+.slide-box .btn-next{
+    right: 0;
+}
+.page-slide{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+
+    transform: translate(-50%,0);
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+.page-slide ul li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    margin: 2px;
+    border-radius: 50%;
+    font-size: 11px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+}
+.page-slide ul li:hover{
+    background-color:blanchedalmond;
+}
+.active{
+    background-color: darkcyan !important;
+    color: white;
+}
